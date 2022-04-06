@@ -29,7 +29,7 @@
         <div class="row">
 
             <!-- Requisition list  -->
-            <div class="col-md-5 inventory-requisition">
+            <div class="col-md-4 inventory-requisition">
                 <h4 class="requisition-list-title mb-3">Requisition List</h4>
                 <table id="example" class="display " style="width:100%">
                     <thead>
@@ -57,7 +57,7 @@
                 </table>
             </div>
 
-            <div class="col-md-7 inventory-requisition">
+            <div class="col-md-8 inventory-requisition">
                 <!-- Requisition Form -->
                 <div class="requisition-basic-info">
                     <form action="">
@@ -151,69 +151,61 @@
                 <div class="requisition-details">
                     <h4 class="requisition-title">Details</h4>
                     <div class="requisition-details-inner">
-                        <div class="row">
-                            <div class="col-md-2 col-sm-4">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">
-                                        Stock Qty
-                                    </label>
+                        <div class="details-input">
+                            <div>
+                                <label for="exampleFormControlInput1" class="form-label">
+                                    Item's Name <span class="required-mark">*</span>
+                                </label>
 
-                                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="name@example.com">
-                                </div>
+                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
+                                    placeholder="name@example.com">
                             </div>
 
-                            <div class="col-md-2 col-sm-4">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">
-                                        UOM <span class="required-mark">*</span>
-                                    </label>
-
-                                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="name@example.com">
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-4">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">
-                                        Request Qty <span class="required-mark">*</span>
-                                    </label>
-
-                                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="name@example.com">
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-4">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">
-                                        Reason <span class="required-mark">*</span>
-                                    </label>
-
-                                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="name@example.com">
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-4">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">
-                                        Required Date <span class="required-mark">*</span>
-                                    </label>
-
-                                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="name@example.com">
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-4">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">
-                                        Description 
-                                    </label>
-
-                                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="name@example.com">
-                                </div>
+                            <div>
+                                <label for="exampleFormControlInput1" class="form-label"> Stock Qty </label>
+                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
+                                    placeholder="name@example.com">
                             </div>
 
+                            <div>
+                                <label for="exampleFormControlInput1" class="form-label">
+                                    UOM <span class="required-mark">*</span>
+                                </label>
+                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
+                                    placeholder="name@example.com">
+                            </div>
+                            <div>
+                                <label for="exampleFormControlInput1" class="form-label">
+                                    Request Qty <span class="required-mark">*</span>
+                                </label>
+                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
+                                    placeholder="name@example.com">
+                            </div>
+                            <div>
+                                <label for="exampleFormControlInput1" class="form-label">
+                                    Reason <span class="required-mark">*</span>
+                                </label>
+                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
+                                    placeholder="name@example.com">
+                            </div>
+                            <div>
+                                <label for="exampleFormControlInput1" class="form-label">
+                                    Required Date <span class="required-mark">*</span>
+                                </label>
+                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
+                                    placeholder="name@example.com">
+                            </div>
+                            <div>
+                                <label for="exampleFormControlInput1" class="form-label">
+                                    Description 
+                                </label>
+                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
+                                    placeholder="name@example.com">
+                            </div>
+                            <div class="d-flex align-items-center">
+                               <button class="btn btn-sm btn-info">Add To Cart</button>
+                               <button class="btn btn-sm btn-warning">Clear</button>
+                            </div>
                         </div>
                     </div>
                 </div>

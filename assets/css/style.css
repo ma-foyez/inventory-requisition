@@ -16,7 +16,7 @@ html, body{
 
 .inventory-requisition{
     border: 2px solid var(--color-deep-green);
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 5px;
 }
 
@@ -30,14 +30,29 @@ html, body{
     font-weight: 500;
 }
 
+table.dataTable tr{
+    background-color: var(--color-deep-green);
+    color: var(--color-white);
+    font-size: .8rem;
+}
+table.dataTable td{
+    color: black;
+}
+
 .requisition-basic-info{
     background-color: var(--color-green);
     padding: 1rem;
     border-radius: 5px;
 }
+label{
+    position: relative;
+}
 .required-mark{
     color: red;
     font-size: 1.2rem;
+    position: absolute;
+    top: 10%;
+
 }
 .requisition-title{
     font-weight: 600;
@@ -48,6 +63,18 @@ html, body{
     border-radius: 5px;
     padding: 0.5rem;
 }
+
+.details-input{
+    display: flex;
+    gap: 0.2rem;
+}
+.details-input > div{
+    flex: 5%;
+}
 .requisition-details-inner label{
     font-size: 0.7rem;
+    position: relative;
+}
+.requisition-details-inner .required-mark{
+   top: -40%;
 }
