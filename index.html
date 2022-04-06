@@ -30,8 +30,8 @@
 
             <!-- Requisition list  -->
             <div class="col-md-4 inventory-requisition">
-                <h4 class="requisition-list-title mb-3">Requisition List</h4>
-                <table id="example" class="display " style="width:100%">
+                <h4 class="requisition-title mb-3">Requisition List</h4>
+                <table id="example" class="display table table-sm table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th>SL</th>
@@ -45,13 +45,13 @@
                             <td>1</td>
                             <td>D656565fd6s56</td>
                             <td>Admin</td>
-                            <td><button class="btn">Edit</button></td>
+                            <td><button class="custom-btn">Edit</button></td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>dfdfse454545</td>
                             <td>Admin</td>
-                            <td><button class="btn">Edit</button></td>
+                            <td><button class="custom-btn">Edit</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -149,7 +149,7 @@
 
                 <!-- Requisition details start-->
                 <div class="requisition-details">
-                    <h4 class="requisition-title">Details</h4>
+                    <h4 class="requisition-details-title">Details</h4>
                     <div class="requisition-details-inner">
                         <div class="details-input">
                             <div>
@@ -197,19 +197,25 @@
                             </div>
                             <div>
                                 <label for="exampleFormControlInput1" class="form-label">
-                                    Description 
+                                    Description
                                 </label>
                                 <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
                                     placeholder="name@example.com">
                             </div>
-                            <div class="d-flex align-items-center">
-                               <button class="btn btn-sm btn-info">Add To Cart</button>
-                               <button class="btn btn-sm btn-warning">Clear</button>
-                            </div>
+
+                        </div>
+                        <div class="details-btn-group">
+                            <button class="custom-btn">Add To Cart</button>
+                            <button class="custom-btn clear">Clear</button>
                         </div>
                     </div>
                 </div>
                 <!-- Requisition details close-->
+                <!-- Requisition cart start-->
+                <div class="requisition-cart mt-2">
+                    <h4 class="requisition-title mb-3">Cart</h4>
+                </div>
+                <!-- Requisition cart close-->
             </div>
 
 

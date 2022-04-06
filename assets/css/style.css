@@ -1,80 +1,135 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-:root{
-    --color-green: #D7F5F1;
-    --color-deep-green: #1AB394;
-    --color-warning: #F8AC57;
-    --color-white: #FFFFFF;
-}
-
-html, body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    color: #383838;
+:root {
+  --color-green: #d7f5f1;
+  --color-deep-green: #1ab394;
+  --color-warning: #e6810f;
+  --color-white: #ffffff;
 }
 
-.inventory-requisition{
-    border: 2px solid var(--color-deep-green);
-    padding: 0.5rem;
-    border-radius: 5px;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  color: #383838;
+}
+td {
+  padding: 0 !important;
+}
+.custom-btn {
+  background-color: var(--color-deep-green);
+  color: var(--color-white);
+  padding: 0.2rem 0.54rem;
+  border: 0;
+  outline: 0;
+  border-radius: 2px;
+  margin: 5px;
+  cursor: pointer;
+}
+.inventory-requisition {
+  border: 2px solid var(--color-deep-green);
+  padding: 0.5rem;
+  border-radius: 5px;
 }
 
-.requisition-list-title{
-    background-color: var(--color-deep-green);
-    color: var(--color-white);
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 0.5rem;
-    border-radius: 5px;
-    font-weight: 500;
+.requisition-title {
+  background-color: var(--color-deep-green);
+  color: var(--color-white);
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 500;
 }
 
-table.dataTable tr{
-    background-color: var(--color-deep-green);
-    color: var(--color-white);
-    font-size: .8rem;
+.requisition-basic-info {
+  background-color: var(--color-green);
+  padding: 1rem;
+  border-radius: 5px;
 }
-table.dataTable td{
-    color: black;
+label {
+  position: relative;
 }
-
-.requisition-basic-info{
-    background-color: var(--color-green);
-    padding: 1rem;
-    border-radius: 5px;
+.required-mark {
+  color: red;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 10%;
 }
-label{
-    position: relative;
+.requisition-details-title {
+  font-weight: 600;
+  margin-top: 25px;
 }
-.required-mark{
-    color: red;
-    font-size: 1.2rem;
-    position: absolute;
-    top: 10%;
-
-}
-.requisition-title{
-    font-weight: 600;
-    margin-top: 25px;
-}
-.requisition-details-inner{
-    border: 1px solid var(--color-deep-green);
-    border-radius: 5px;
-    padding: 0.5rem;
+.requisition-details-inner {
+  border: 1px solid var(--color-deep-green);
+  border-radius: 5px;
+  padding: 0.5rem;
 }
 
-.details-input{
-    display: flex;
-    gap: 0.2rem;
+.details-input {
+  display: flex;
+  gap: 0.2rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.details-input > div{
-    flex: 5%;
+
+.details-input div {
+  flex: 80px!Important;
 }
-.requisition-details-inner label{
-    font-size: 0.7rem;
-    position: relative;
+
+.requisition-details-inner label {
+  font-size: 0.7rem;
+  position: relative;
 }
-.requisition-details-inner .required-mark{
-   top: -40%;
+.requisition-details-inner .required-mark {
+  top: -40%;
+}
+
+.details-btn-group {
+ text-align: right;
+}
+.details-btn-group button {
+  font-size: 0.9rem;
+}
+.custom-btn.clear{
+    background-color: var(--color-warning);
+}
+/*****************************************
+*    Overwrite data table css
+******************************************/
+
+table.dataTable tr {
+  background-color: var(--color-deep-green);
+  color: var(--color-white);
+  font-size: 0.8rem;
+}
+table.dataTable td {
+  color: black;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+  font-size: 0.8rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.dataTables_paginate {
+  border: 1px solid gray;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  padding: 0 !important;
+  border-radius: 5px;
+}
+.table > tbody {
+  vertical-align: text-top;
+  text-align: center;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: var(--color-deep-green) !important;
+  color: var(--color-white) !important;
 }
