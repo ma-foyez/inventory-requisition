@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    loadInfoTable("/assets/js/data.json")
+    loadInfoTable('/assets/data/data.json')
 })
 
 async function loadInfoTable(url) {
