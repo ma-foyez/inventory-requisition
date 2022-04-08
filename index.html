@@ -13,14 +13,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable();
-        });
-    </script>
+
     <title>Inventory Requisition</title>
 </head>
 
@@ -31,7 +25,7 @@
             <!-- Requisition list  -->
             <div class="col-md-4 inventory-requisition">
                 <h4 class="requisition-title mb-3">Requisition List</h4>
-                <table id="example" class="display table table-sm table-bordered" style="width:100%">
+                <table id="data-table" class="display table table-sm table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th>SL</th>
@@ -40,19 +34,8 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>D656565fd6s56</td>
-                            <td>Admin</td>
-                            <td><button class="custom-btn">Edit</button></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>dfdfse454545</td>
-                            <td>Admin</td>
-                            <td><button class="custom-btn">Edit</button></td>
-                        </tr>
+                    <tbody id="table-body">
+
                     </tbody>
                 </table>
             </div>
@@ -70,8 +53,8 @@
                                     <span class="input-group-text" id="basic-addon1">
                                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                     </span>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                                        aria-describedby="basic-addon1">
+                                    <input type="text" id="companyName" class="form-control" placeholder="Company Name"
+                                        aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -84,8 +67,8 @@
                                     <span class="input-group-text" id="basic-addon1">
                                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                     </span>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                                        aria-describedby="basic-addon1">
+                                    <input type="text" id="department" class="form-control" placeholder="Department"
+                                        aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -98,8 +81,8 @@
                                     <span class="input-group-text" id="basic-addon1">
                                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                     </span>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                                        aria-describedby="basic-addon1">
+                                    <input type="text" id="warehouse" class="form-control" placeholder="Warehouse"
+                                        aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -112,7 +95,8 @@
                                     <span class="input-group-text" id="basic-addon1">
                                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                     </span>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                                    <input type="text" id="requisitionType" class="form-control"
+                                        placeholder="Requisition Type" aria-label="Username"
                                         aria-describedby="basic-addon1">
                                 </div>
                             </div>
@@ -124,8 +108,8 @@
                                     <span class="input-group-text" id="basic-addon1">
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                     </span>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                                        aria-describedby="basic-addon1">
+                                    <input type="date" id="requisitionDate" class="form-control" placeholder="Username"
+                                        aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -136,8 +120,8 @@
                                     <span class="input-group-text" id="basic-addon1">
                                         <i class="fa fa-user" aria-hidden="true"></i>
                                     </span>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                                        aria-describedby="basic-addon1">
+                                    <input type="text" id="requestBy" class="form-control" placeholder="Request By"
+                                        aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -157,56 +141,69 @@
                                     Item's Name <span class="required-mark">*</span>
                                 </label>
 
-                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
-                                    placeholder="name@example.com">
+                                <select class="form-select form-select-sm" id="itemName"
+                                    aria-label="Default select example">
+                                    <option selected>Select Items</option>
+                                    <option value="PVC Floor Mat">PVC Floor Mat</option>
+                                    <option value="RFL Thread Pipe">RFL Thread Pipe</option>
+                                    <option value="Conduit Pipe">Conduit Pipe</option>
+                                    <option value="RFL PP-R Pipe">RFL PP-R Pipe</option>
+                                </select>
+
+                                <!-- <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
+                                    placeholder="name@example.com"> -->
                             </div>
 
                             <div>
                                 <label for="exampleFormControlInput1" class="form-label"> Stock Qty </label>
-                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
-                                    placeholder="name@example.com">
+                                <input type="number" id="stockQty" class="form-control form-control-sm"
+                                    placeholder="Stock Qty">
                             </div>
 
                             <div>
                                 <label for="exampleFormControlInput1" class="form-label">
                                     UOM <span class="required-mark">*</span>
                                 </label>
-                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
-                                    placeholder="name@example.com">
+                                <select class="form-select form-select-sm" id="uom" aria-label="Default select example">
+                                    <option selected>Select UOM</option>
+                                    <option value="Unit of Measurement">Unit of Measurement</option>
+                                    <option value="Unit of Items">Unit of Items</option>
+
+                                </select>
                             </div>
                             <div>
                                 <label for="exampleFormControlInput1" class="form-label">
                                     Request Qty <span class="required-mark">*</span>
                                 </label>
-                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
-                                    placeholder="name@example.com">
+                                <input type="text" id="requestQty" class="form-control form-control-sm"
+                                    placeholder="Request Qty">
                             </div>
                             <div>
                                 <label for="exampleFormControlInput1" class="form-label">
                                     Reason <span class="required-mark">*</span>
                                 </label>
-                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
-                                    placeholder="name@example.com">
+                                <input type="text" id="reason" class="form-control form-control-sm"
+                                    placeholder="Reason">
                             </div>
                             <div>
                                 <label for="exampleFormControlInput1" class="form-label">
                                     Required Date <span class="required-mark">*</span>
                                 </label>
-                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
-                                    placeholder="name@example.com">
+                                <input type="date" id="requiredDate" class="form-control form-control-sm"
+                                    placeholder="Required Date">
                             </div>
                             <div>
                                 <label for="exampleFormControlInput1" class="form-label">
                                     Description
                                 </label>
-                                <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
-                                    placeholder="name@example.com">
+                                <input type="text" id="description" class="form-control form-control-sm"
+                                    placeholder="Description">
                             </div>
 
                         </div>
                         <div class="details-btn-group">
-                            <button class="custom-btn">Add To Cart</button>
-                            <button class="custom-btn clear">Clear</button>
+                            <button class="custom-btn" onclick="onFormSubmit()">Add To Cart</button>
+                            <button class="custom-btn clear" onclick="resetForm()">Clear</button>
                         </div>
                     </div>
                 </div>
@@ -214,6 +211,22 @@
                 <!-- Requisition cart start-->
                 <div class="requisition-cart mt-2">
                     <h4 class="requisition-title mb-3">Cart</h4>
+
+                    <table id="item-details-list" class="display table table-sm table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Request Qty</th>
+                                <th>Reason</th>
+                                <th>Required Date</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
                 </div>
                 <!-- Requisition cart close-->
             </div>
@@ -228,6 +241,9 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="./assets/js/main.js"></script>
 
 </body>
 
