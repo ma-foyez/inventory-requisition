@@ -1,18 +1,6 @@
 $(document).ready(function () {
-    // $('#data-table').DataTable(
-    //     // data = {
-    //     //     "ajax": "/assets/js/data.json",
-    //     //     columns: [
-    //     //         { "data": "id" },
-    //     //         { "data": "code" },
-    //     //         { "data": "department" },
-    //     //     ],
-    //     // }
-    // )
     loadInfoTable("/assets/js/data.json")
 })
-
-
 
 async function loadInfoTable(url) {
     var table = document.getElementById("data-table").getElementsByTagName('tbody')[0];

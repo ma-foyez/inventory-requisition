@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-
-
     <title>Inventory Requisition</title>
 </head>
 
@@ -143,15 +141,12 @@
 
                                 <select class="form-select form-select-sm" id="itemName"
                                     aria-label="Default select example">
-                                    <option selected>Select Items</option>
+                                    <option disabled selected value="">Select Items</option>
                                     <option value="PVC Floor Mat">PVC Floor Mat</option>
                                     <option value="RFL Thread Pipe">RFL Thread Pipe</option>
                                     <option value="Conduit Pipe">Conduit Pipe</option>
                                     <option value="RFL PP-R Pipe">RFL PP-R Pipe</option>
                                 </select>
-
-                                <!-- <input type="email" class="form-control form-control-sm" id="exampleFormControlInput1"
-                                    placeholder="name@example.com"> -->
                             </div>
 
                             <div>
@@ -165,7 +160,7 @@
                                     UOM <span class="required-mark">*</span>
                                 </label>
                                 <select class="form-select form-select-sm" id="uom" aria-label="Default select example">
-                                    <option selected>Select UOM</option>
+                                    <option disabled selected value="">Select UOM</option>
                                     <option value="Unit of Measurement">Unit of Measurement</option>
                                     <option value="Unit of Items">Unit of Items</option>
 
@@ -208,6 +203,7 @@
                     </div>
                 </div>
                 <!-- Requisition details close-->
+
                 <!-- Requisition cart start-->
                 <div class="requisition-cart mt-2">
                     <h4 class="requisition-title mb-3">Cart</h4>
