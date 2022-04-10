@@ -10,12 +10,6 @@ $('.remove-sidebar-mobile').on('click', function () {
     $('#toggle-icon').toggleClass('fa-times');
 });
 
-$(window).click(function () {
-    $('.sidebar').removeClass('sidebar-open');
-    $('#toggle-icon').addClass('fa-bars');
-    $('#toggle-icon').removeClass('fa-times');
-});
-
 $('.sidebar-toggle').on('click', function (event) {
     event.stopPropagation();
 });
@@ -23,3 +17,10 @@ $('.sidebar-toggle').on('click', function (event) {
 $('.sidebar').on('click', function (event) {
     event.stopPropagation();
 });
+
+//when clicking the where of window
+// $(window).click(function () {
+//     $('.sidebar').removeClass('sidebar-open');
+//     $('#toggle-icon').addClass('fa-bars');
+//     $('#toggle-icon').removeClass('fa-times');
+// });

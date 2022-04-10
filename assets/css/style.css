@@ -159,3 +159,25 @@ label {
 #data-table {
   font-size: 12px;
 }
+
+.modal-title{
+  color: var(--color-deep-green);
+  font-weight: 700;
+}
+.modal-header{
+  position: relative;
+}
+.modal-header .close {
+  background-color: var(--color-deep-green)!important;
+  color: var(--color-white);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 1;
+}

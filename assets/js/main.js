@@ -1,5 +1,8 @@
+var approvalData = [];
+
 $(document).ready(function () {
-    loadInfoTable('/assets/js/data.json')
+    loadInfoTable('/assets/js/data.json');
+    approveAllDetails();
 })
 
 async function loadInfoTable(url) {
@@ -29,14 +32,29 @@ async function onEdit(td) {
     const { data } = await response.json();
     const getSingleData = data.find((item) => item.id === getID);
 
-    document.getElementById("companyName").value = getSingleData.company;
-    document.getElementById("department").value = getSingleData.department;
-    document.getElementById("warehouse").value = getSingleData.warehouse;
-    document.getElementById("requisitionType").value = getSingleData.requisitionType;
+    document.getElementById("companyName").defaultSelected = getSingleData.companyName;
+
+    setDefaultSelectOptionValue(getSingleData.company, "companyName");
+    setDefaultSelectOptionValue(getSingleData.department, "department");
+    setDefaultSelectOptionValue(getSingleData.warehouse, "warehouse");
+    setDefaultSelectOptionValue(getSingleData.requisitionType, "requisitionType");
+
     document.getElementById("requisitionDate").value = getSingleData.requisitionDate;
     document.getElementById("requestBy").value = getSingleData.requestBy;
 }
 
+// default selected value set from JSON Data
+async function setDefaultSelectOptionValue(dataValue, selectValueId) {
+    const getSelectInput = document.getElementById(selectValueId).options;
+
+    for (let n = 0; n < getSelectInput.length; n++) {
+        const element = getSelectInput[n];
+
+        if (element.value === dataValue) {
+            element.defaultSelected = dataValue;
+        }
+    }
+}
 
 
 function readFormData() {
@@ -96,8 +114,14 @@ function onFormSubmit() {
     resetForm();
 }
 
+
 // insert item details data
 function insertNewRecord(data) {
+
+    if (data) {
+        approvalData.push(data);
+    }
+
     var table = document.getElementById("item-details-list").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
     cell1 = newRow.insertCell(0);
@@ -115,10 +139,56 @@ function insertNewRecord(data) {
 }
 
 //delete single details item
-function onDelete(td) {
+async function onDelete(td) {
     if (confirm('Are you sure to delete this record ?')) {
         row = td.parentElement.parentElement;
+        const removeID = row.rowIndex - 1;
+        approvalData.splice(removeID, 1);
+        const filteredData = approvalData.filter((item, index) => index !== removeID);
+
         document.getElementById("item-details-list").deleteRow(row.rowIndex);
         resetForm();
+    }
+}
+
+console.log('approvalData :>> ', approvalData);
+
+// approve all details 
+function approveAllDetails() {
+    var table = document.getElementById("approval-table").getElementsByTagName('tbody')[0];
+
+    for (let i = 0; i < approvalData.length; i++) {
+        const element = approvalData[i];
+        if (approvalData.length > table.rows.length) {
+            var newRow = table.insertRow(table.rows.length);
+            cell1 = newRow.insertCell(0);
+            cell1.innerHTML = Math.floor((Math.random() * 10) + 1);;
+            cell2 = newRow.insertCell(1);
+            cell2.innerHTML = element.companyName;
+            cell3 = newRow.insertCell(2);
+            cell3.innerHTML = element.department;
+            cell4 = newRow.insertCell(3);
+            cell4.innerHTML = element.warehouse;
+            cell5 = newRow.insertCell(4);
+            cell5.innerHTML = element.requisitionType;
+            cell6 = newRow.insertCell(5);
+            cell6.innerHTML = element.requisitionDate;
+            cell7 = newRow.insertCell(6);
+            cell7.innerHTML = element.requestBy;
+            cell8 = newRow.insertCell(7);
+            cell8.innerHTML = element.itemName;
+            cell9 = newRow.insertCell(8);
+            cell9.innerHTML = element.stockQty;
+            cell10 = newRow.insertCell(9);
+            cell10.innerHTML = element.uom;
+            cell11 = newRow.insertCell(10);
+            cell11.innerHTML = element.requestQty;
+            cell12 = newRow.insertCell(11);
+            cell12.innerHTML = element.reason;
+            cell13 = newRow.insertCell(12);
+            cell13.innerHTML = element.requiredDate;
+            cell14 = newRow.insertCell(13);
+            cell14.innerHTML = element.description;
+        }
     }
 }
