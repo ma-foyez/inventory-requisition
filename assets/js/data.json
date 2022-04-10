@@ -1,0 +1,48 @@
+{
+    "data": [
+        {
+            "id": "1",
+            "code": "DR-220DFNVQ101",
+            "company": "Corporate Common Service",
+            "department": "Admin",
+            "warehouse": "Sylhet RDC -Pertromax LPG Ltd",
+            "requisitionType": "Normal",
+            "requisitionDate": "2022-04-03",
+            "requestBy": "superadmin@gmail.com",
+            "btn": "Edit"
+        },
+        {
+            "id": "2",
+            "code": "DR-656ET4ERT",
+            "company": "Corporate Service",
+            "department": "Admin",
+            "warehouse": "Dhaka Pertromax LPG Ltd",
+            "requisitionType": "Normal",
+            "requisitionDate": "2022-04-03",
+            "requestBy": "superadmin@gmail.com",
+            "btn": "Edit"
+        },
+        {
+            "id": "3",
+            "code": "DR-5FG45DG",
+            "company": "Corporate Service",
+            "department": "Admin",
+            "warehouse": "Dhaka Pertromax LPG Ltd",
+            "requisitionType": "Normal",
+            "requisitionDate": "2022-04-03",
+            "requestBy": "superadmin@gmail.com",
+            "btn": "Edit"
+        },
+        {
+            "id": "4",
+            "code": "DEG-565W56E5R",
+            "company": "Corporate Service",
+            "department": "Admin",
+            "warehouse": "Dhaka Pertromax LPG Ltd",
+            "requisitionType": "Normal",
+            "requisitionDate": "2022-04-03",
+            "requestBy": "superadmin@gmail.com",
+            "btn": "Edit"
+        }
+    ]
+}

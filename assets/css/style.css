@@ -32,7 +32,66 @@ td {
   padding: 0.5rem;
   border-radius: 5px;
 }
+.toggle-btn i {
+  border: 2px solid var(--color-deep-green);
+  color: var(--color-deep-green);
+  font-size: 1rem;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
 
+.toggle-btn-mobile {
+  border: 2px solid var(--color-white);
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: none;
+}
+/*****************************************
+*    toggle sidebar css
+******************************************/
+.inner-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 0px;
+  min-height: 100vh;
+  background: #fff;
+  overflow-y: auto;
+  transition: 0.5s all;
+}
+.sidebar-open {
+  width: 500px;
+  border: 2px solid var(--color-deep-green);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+@media only screen and (max-width: 767px) {
+  .sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+  }
+  .sidebar-open {
+    width: 100%;
+  }
+  .requisition-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .toggle-btn-mobile {
+    display: inline;
+  }
+}
+/*****************************************
+*    toggle sidebar css close
+******************************************/
 .requisition-title {
   background-color: var(--color-deep-green);
   color: var(--color-white);
@@ -76,7 +135,7 @@ label {
 }
 
 .details-input div {
-  flex: 80px!Important;
+  flex: 80px !important;
 }
 
 .requisition-details-inner label {
@@ -88,48 +147,15 @@ label {
 }
 
 .details-btn-group {
- text-align: right;
+  text-align: right;
 }
 .details-btn-group button {
   font-size: 0.9rem;
 }
-.custom-btn.clear{
-    background-color: var(--color-warning);
-}
-/*****************************************
-*    Overwrite data table css
-******************************************/
-
-table.dataTable tr {
-  background-color: var(--color-deep-green);
-  color: var(--color-white);
-  font-size: 0.8rem;
-}
-table.dataTable td {
-  color: black;
+.custom-btn.clear {
+  background-color: var(--color-warning);
 }
 
-.dataTables_wrapper .dataTables_length,
-.dataTables_wrapper .dataTables_filter,
-.dataTables_wrapper .dataTables_info,
-.dataTables_wrapper .dataTables_processing,
-.dataTables_wrapper .dataTables_paginate {
-  font-size: 0.8rem;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-.dataTables_paginate {
-  border: 1px solid gray;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-  padding: 0 !important;
-  border-radius: 5px;
-}
-.table > tbody {
-  vertical-align: text-top;
-  text-align: center;
-}
-.dataTables_wrapper .dataTables_paginate .paginate_button.current,
-.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-  background: var(--color-deep-green) !important;
-  color: var(--color-white) !important;
+#data-table {
+  font-size: 12px;
 }
