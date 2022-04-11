@@ -196,8 +196,6 @@ async function onDelete(td) {
         // approvalData.splice(removeID, 1);
         approvalData = approvalData.filter((item, index) => index !== removeID);
 
-        console.log('approvalData :>> ', approvalData);
-
         document.getElementById("item-details-list").deleteRow(row.rowIndex);
         resetForm();
     }
