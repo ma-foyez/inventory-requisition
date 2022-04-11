@@ -80,7 +80,7 @@ td {
   .sidebar-open {
     width: 100%;
   }
-  .requisition-title{
+  .requisition-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -160,15 +160,15 @@ label {
   font-size: 12px;
 }
 
-.modal-title{
+.modal-title {
   color: var(--color-deep-green);
   font-weight: 700;
 }
-.modal-header{
+.modal-header {
   position: relative;
 }
 .modal-header .close {
-  background-color: var(--color-deep-green)!important;
+  background-color: var(--color-deep-green) !important;
   color: var(--color-white);
   height: 30px;
   width: 30px;
@@ -180,4 +180,88 @@ label {
   right: 0;
   top: 0;
   opacity: 1;
+}
+
+.validation-error {
+  color: rgb(189, 0, 0);
+  font-weight: 500;
+  display: block;
+}
+.validation-error.hide {
+  display: none;
+}
+
+/* //toaster css */
+#toaster {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+  border: 1px solid transparent;
+}
+#toaster.show.warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+#toaster.show.success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+#toaster.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }

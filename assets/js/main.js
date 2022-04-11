@@ -5,6 +5,11 @@ $(document).ready(function () {
     approveAllDetails();
 })
 
+/**
+ * Load all requisition list from json data
+ * 
+ * @param {string} url ex: JSON data path
+ */
 async function loadInfoTable(url) {
     var table = document.getElementById("data-table").getElementsByTagName('tbody')[0];
     const response = await fetch(url);
@@ -43,10 +48,14 @@ async function onEdit(td) {
     document.getElementById("requestBy").value = getSingleData.requestBy;
 }
 
-// default selected value set from JSON Data
+/**
+ * default selected value set from JSON Data
+ * @param {object property} dataValue 
+ * @param {string} selectValueId 
+ */
+
 async function setDefaultSelectOptionValue(dataValue, selectValueId) {
     const getSelectInput = document.getElementById(selectValueId).options;
-
     for (let n = 0; n < getSelectInput.length; n++) {
         const element = getSelectInput[n];
 
@@ -56,10 +65,12 @@ async function setDefaultSelectOptionValue(dataValue, selectValueId) {
     }
 }
 
-
+/**
+ * get all input value by their specific input id
+ * @returns formData;
+ */
 function readFormData() {
     var formData = {};
-
     // get previous requisition list value
     formData["companyName"] = document.getElementById("companyName").value;
     formData["department"] = document.getElementById("department").value;
@@ -80,9 +91,12 @@ function readFormData() {
     return formData;
 }
 
+
 var selectDetailsRow = null
 
-// reset form
+/**
+ * Reset form after successfully submission
+ */
 function resetForm() {
     // get previous requisition list value
     document.getElementById("companyName").value = "";
@@ -97,25 +111,56 @@ function resetForm() {
     document.getElementById("stockQty").value = "";
     document.getElementById("uom").value = "";
     document.getElementById("requestQty").value = "";
-    document.getElementById("requestQty").value = "";
     document.getElementById("reason").value = "";
     document.getElementById("requiredDate").value = "";
     document.getElementById("description").value = "";
     selectDetailsRow = null;
 }
 
-
+/**
+ * On submit form 
+ */
 function onFormSubmit() {
     var formData = readFormData();
     if (selectDetailsRow == null) {
-        insertNewRecord(formData);
-        alert("Details save successfully!")
+        if (formData.companyName === "") {
+            showToaster("warning", "Company Name can't be blank!");
+        } else if (formData.department === "") {
+            showToaster("warning", "Department can't be blank!");
+        } else if (formData.warehouse === "") {
+            showToaster("warning", "Warehouse can't be blank!");
+        } else if (formData.requisitionType === "") {
+            showToaster("warning", "Requisition types can't be blank!");
+        } else if (formData.requisitionDate === "") {
+            showToaster("warning", "Requisition date can't be blank!");
+        } else if (formData.requestBy === "") {
+            showToaster("warning", "Request person can't be blank!");
+        } else if (formData.itemName === "") {
+            showToaster("warning", "Item name can't be blank!");
+        } else if (formData.stockQty === "") {
+            showToaster("warning", "Stock can't be blank!");
+        } else if (formData.uom === "") {
+            showToaster("warning", "UOM can't be blank!");
+        } else if (formData.requestQty === "") {
+            showToaster("warning", "Request quantity can't be blank!");
+        } else if (formData.reason === "") {
+            showToaster("warning", "Reason can't be blank!");
+        } else if (formData.requiredDate === "") {
+            showToaster("warning", "Request date can't be blank!");
+        } else {
+            insertNewRecord(formData);
+            showToaster("success", "Details Data save successfully!")
+            resetForm();
+        }
     }
-    resetForm();
 }
 
 
-// insert item details data
+/**
+ * insert single items in details section
+ * @param {object} data 
+ */
+
 function insertNewRecord(data) {
 
     if (data) {
@@ -138,23 +183,33 @@ function insertNewRecord(data) {
     cell6.innerHTML = ` <button class="btn btn-sm btn-outline-warning m-1" onClick="onDelete(this)">Delete</button>`;
 }
 
-//delete single details item
+/**
+ * delete single rows in details item
+ * 
+ * @param {object} td 
+ * @returns onDelete;
+ */
 async function onDelete(td) {
     if (confirm('Are you sure to delete this record ?')) {
         row = td.parentElement.parentElement;
         const removeID = row.rowIndex - 1;
-        approvalData.splice(removeID, 1);
-        const filteredData = approvalData.filter((item, index) => index !== removeID);
+        // approvalData.splice(removeID, 1);
+        approvalData = approvalData.filter((item, index) => index !== removeID);
+
+        console.log('approvalData :>> ', approvalData);
 
         document.getElementById("item-details-list").deleteRow(row.rowIndex);
         resetForm();
     }
 }
 
-console.log('approvalData :>> ', approvalData);
+/**
+ * Approve all details data
+ */
+async function approveAllDetails() {
 
-// approve all details 
-function approveAllDetails() {
+    await resetTable("approval-table");
+
     var table = document.getElementById("approval-table").getElementsByTagName('tbody')[0];
 
     for (let i = 0; i < approvalData.length; i++) {
@@ -191,4 +246,31 @@ function approveAllDetails() {
             cell14.innerHTML = element.description;
         }
     }
+}
+
+
+/**
+ * Show toaster for waring & successful message display
+ * 
+ * @param {string} status 
+ * @param {string} message 
+ * @returns showToaster
+ */
+function showToaster(status, message) {
+    var x = document.getElementById("toaster");
+    x.innerHTML = message
+    if (status === "warning") {
+        x.className = "show warning";
+    } else {
+        x.className = "show success";
+    }
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+}
+
+/**
+ * first time reset table body's index data when this function call
+ * @param {string} tableID ex: approval table id
+ */
+function resetTable(tableID) {
+    document.getElementById(tableID).getElementsByTagName('tbody')[0].innerHTML = "";
 }

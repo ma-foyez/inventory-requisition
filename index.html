@@ -176,6 +176,8 @@
                                 <label for="exampleFormControlInput1" class="form-label">
                                     Item's Name <span class="required-mark">*</span>
                                 </label>
+                                <label class="validation-error hide" id="fullNameValidationError">This field is
+                                    required.</label>
 
                                 <select class="form-select form-select-sm" id="itemName"
                                     aria-label="Default select example">
@@ -263,8 +265,7 @@
                     </table>
                     <div class="text-end">
                         <button class="custom-btn" data-toggle="modal" data-target="#ApproveAllDetails" .
-                            onclick="approveAllDetails()"
-                            >Submit For
+                            onclick="approveAllDetails()">Submit For
                             Approve</button>
                     </div>
                 </div>
@@ -302,7 +303,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="align-middle">
-
+                                        <tr class="approvalDataRow"></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -312,7 +313,7 @@
 
                 <!-- Requisition cart close-->
             </div>
-
+            <div id="toaster"></div>
         </div>
     </div>
 
